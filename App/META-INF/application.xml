@@ -4,4 +4,10 @@
              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/application_8.xsd"
              version="8">
 
+    <module id="WAR-Web">
+        <web>
+            <context-root>WARWeb</context-root>
+            <web-uri>WAR.war</web-uri>
+        </web>
+    </module>
 </application>

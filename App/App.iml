@@ -16,5 +16,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="GlassFish 5.0.0" level="application_server_libraries" />
+    <orderEntry type="module" module-name="Interfaces" />
   </component>
 </module>
