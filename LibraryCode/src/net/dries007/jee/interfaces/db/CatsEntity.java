@@ -1,18 +1,18 @@
-package net.dries007.jee.db;
+package net.dries007.jee.interfaces.db;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 /**
  * @author Dries007
  */
 @Entity
-@Table(name = "owners", schema = "AA01")
-public class OwnersEntity
+@Table(name = "cats", schema = "AA01")
+public class CatsEntity
 {
     private int id;
     private String name;
-    private Collection<CatsEntity> catsById;
+    private String color;
+    private OwnersEntity ownersByOwner;
 
     @Id
     @Column(name = "id")
@@ -38,16 +38,29 @@ public class OwnersEntity
         this.name = name;
     }
 
+    @Basic
+    @Column(name = "color")
+    public String getColor()
+    {
+        return color;
+    }
+
+    public void setColor(String color)
+    {
+        this.color = color;
+    }
+
     @Override
     public boolean equals(Object o)
     {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        OwnersEntity that = (OwnersEntity) o;
+        CatsEntity that = (CatsEntity) o;
 
         if (id != that.id) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
+        if (color != null ? !color.equals(that.color) : that.color != null) return false;
 
         return true;
     }
@@ -57,17 +70,19 @@ public class OwnersEntity
     {
         int result = id;
         result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (color != null ? color.hashCode() : 0);
         return result;
     }
 
-    @OneToMany(mappedBy = "ownersByOwner")
-    public Collection<CatsEntity> getCatsById()
+    @ManyToOne
+    @JoinColumn(name = "owner", referencedColumnName = "id")
+    public OwnersEntity getOwnersByOwner()
     {
-        return catsById;
+        return ownersByOwner;
     }
 
-    public void setCatsById(Collection<CatsEntity> catsById)
+    public void setOwnersByOwner(OwnersEntity ownersByOwner)
     {
-        this.catsById = catsById;
+        this.ownersByOwner = ownersByOwner;
     }
 }

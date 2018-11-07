@@ -1,18 +1,18 @@
-package net.dries007.jee.db;
+package net.dries007.jee.interfaces.db;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 /**
  * @author Dries007
  */
 @Entity
-@Table(name = "cats", schema = "AA01")
-public class CatsEntity
+@Table(name = "owners", schema = "AA01")
+public class OwnersEntity
 {
     private int id;
     private String name;
-    private String color;
-    private OwnersEntity ownersByOwner;
+    private Collection<CatsEntity> catsById;
 
     @Id
     @Column(name = "id")
@@ -38,29 +38,16 @@ public class CatsEntity
         this.name = name;
     }
 
-    @Basic
-    @Column(name = "color")
-    public String getColor()
-    {
-        return color;
-    }
-
-    public void setColor(String color)
-    {
-        this.color = color;
-    }
-
     @Override
     public boolean equals(Object o)
     {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        CatsEntity that = (CatsEntity) o;
+        OwnersEntity that = (OwnersEntity) o;
 
         if (id != that.id) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
-        if (color != null ? !color.equals(that.color) : that.color != null) return false;
 
         return true;
     }
@@ -70,19 +57,17 @@ public class CatsEntity
     {
         int result = id;
         result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (color != null ? color.hashCode() : 0);
         return result;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "owner", referencedColumnName = "id")
-    public OwnersEntity getOwnersByOwner()
+    @OneToMany(mappedBy = "ownersByOwner")
+    public Collection<CatsEntity> getCatsById()
     {
-        return ownersByOwner;
+        return catsById;
     }
 
-    public void setOwnersByOwner(OwnersEntity ownersByOwner)
+    public void setCatsById(Collection<CatsEntity> catsById)
     {
-        this.ownersByOwner = ownersByOwner;
+        this.catsById = catsById;
     }
 }

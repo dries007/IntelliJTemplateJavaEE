@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/App/App.iml" filepath="$PROJECT_DIR$/App/App.iml" />
       <module fileurl="file://$PROJECT_DIR$/EJB/EJB.iml" filepath="$PROJECT_DIR$/EJB/EJB.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Interfaces/Interfaces.iml" filepath="$PROJECT_DIR$/Interfaces/Interfaces.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LibraryCode/LibraryCode.iml" filepath="$PROJECT_DIR$/LibraryCode/LibraryCode.iml" />
       <module fileurl="file://$PROJECT_DIR$/WAR/WAR.iml" filepath="$PROJECT_DIR$/WAR/WAR.iml" />
     </modules>
   </component>

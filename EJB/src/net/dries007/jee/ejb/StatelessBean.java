@@ -1,7 +1,7 @@
 package net.dries007.jee.ejb;
 
-import net.dries007.jee.db.CatsEntity;
-import net.dries007.jee.db.OwnersEntity;
+import net.dries007.jee.interfaces.db.CatsEntity;
+import net.dries007.jee.interfaces.db.OwnersEntity;
 import net.dries007.jee.interfaces.IStatelessBeanRemote;
 
 import javax.ejb.Stateless;
@@ -17,7 +17,7 @@ import java.util.Collections;
 @Stateless
 public class StatelessBean implements IStatelessBeanRemote
 {
-    @PersistenceContext(unitName = "NewPersistenceUnit")
+    @PersistenceContext
     private EntityManager entityManager;
 
     /**

@@ -4,7 +4,8 @@
     <root id="root">
       <element id="javaee-facet-resources" facet="EJB/ejb/EJB" />
       <element id="module-output" name="EJB" />
-      <element id="module-output" name="Interfaces" />
+      <element id="module-output" name="LibraryCode" />
+      <element id="jpa-descriptors" facet="LibraryCode/jpa/JPA" />
     </root>
   </artifact>
 </component>
